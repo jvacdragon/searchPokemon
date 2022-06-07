@@ -31,15 +31,20 @@ li {
     display: flex;
     border: 3px solid black;
     border-radius: 5%;
-    max-width: 800px;
+    max-width: 700px;
     flex-wrap: wrap;
     margin: auto;
     justify-content: space-between;
 }
 
 .cards{
-    border: 2px solid gray;
-    border-radius: 20%;
+    text-align: center;
+    border: 1px solid gray;
+    padding-bottom: 5%;
+    padding: 0;
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: rgba(255, 0, 0, 0.795);
+    border-radius: 12%;
 }
 
 img {
@@ -47,5 +52,5 @@ img {
     max-width: 70%;
     height: 100px;
     object-fit: cover;
-    border-radius: 10%;
+    border-radius: 50%;
 }
