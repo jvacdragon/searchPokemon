@@ -1,4 +1,5 @@
 import { allData, lowerName} from "./helpers.js"
+import viewPokemon from "./viewPokemon.js"
 
 const cardBlock = document.querySelector('.card-block')
 
@@ -24,6 +25,8 @@ btnSearch.addEventListener('click', function(e){
     e.preventDefault();
 
     cardBlock.innerHTML = ''
-    
+
     searchPoke()
 })
+
+viewPokemon.changeBackground('fire')
