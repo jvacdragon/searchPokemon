@@ -28,5 +28,3 @@ btnSearch.addEventListener('click', function(e){
 
     searchPoke()
 })
-
-viewPokemon.changeBackground('fire')
