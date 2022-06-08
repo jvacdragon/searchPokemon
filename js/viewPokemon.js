@@ -18,7 +18,7 @@ class pokeCard {
 
         console.log(data);
 
-        return this.parent.insertAdjacentHTML('afterbegin', html)
+        return this.parent.insertAdjacentHTML('beforeend', html)
     }
 }
 
