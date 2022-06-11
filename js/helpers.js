@@ -3,36 +3,59 @@ import pokeCard from "./viewPokemon.js"
 const searchBar = document.querySelector('.searchBar')
 
 
+const pagination = {
+    resultsPerPage: 8,
+    page: 1,
+}
+
 
 ///GETTING DATA FROM API
-export const PokemonData = async (name) => {
+const PokemonData = async (name) => {
     const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
     const data = await res.json()
 
     ////IF IMAGE OF THE POKEMON DONT EXIST
-    if(!data.sprites.front_default) return;
+    if (!data.sprites.front_default) return;
 
-    ////RENDERING POKEMON CARD
-    pokeCard.renderCard(data)
+    return data
+
+    //pokeCard.renderCard(data)
 }
 
 ////TRANSFORMING THE NAME AT THE SEARCH BAR
 export const lowerName = () => {
     const name = searchBar.value
-    
-    if(!name) return;
+
+    if (!name) return;
 
     return name.toLowerCase().trim()
 }
 
+////PAGE PAGINATION
+export const getSearchResults = async function (results, page = pagination.page) {
+
+    const start = (page - 1) * pagination.resultsPerPage;
+    const end = page * pagination.resultsPerPage;
+    
+    /////GETTING THE RIGHT THE DATA TO DSISPLAY
+    const cards = await Promise.all(results.slice(start,end))
+
+    //DISPLAY THEN CARDS
+    cards.map(cards => pokeCard.renderCard(cards))
+};
+
+
 export const allData = async (name) => {
     const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0')
     const data = await res.json()
+    const results = []
 
+    await data.results.map(async (poke) =>{
 
-    data.results.map(poke => {  
-        
-        if(poke.name.includes(name)) PokemonData(poke.name);
+        if (poke.name.includes(name)){
+            results.push(PokemonData(poke.name))
+        };
     });
 
+    getSearchResults(results)
 }

@@ -1,7 +1,9 @@
-import { allData, lowerName} from "./helpers.js"
+import { allData, getSearchResults, lowerName} from "./helpers.js"
 import viewPokemon from "./viewPokemon.js"
 
 const cardBlock = document.querySelector('.card-block')
+const btnNext = document.querySelector('.next')
+
 
 //GET THE DATA OF THE POKEMON
 //`https://pokeapi.co/api/v2/pokemon/${namePokemon}`

@@ -62,3 +62,15 @@ img {
     border-radius: 50%;
     background-color: aliceblue;
 }
+
+main{
+    display: flex;
+    width: fit-content;
+    margin: auto;
+}
+
+.change{
+    background-color: aqua;
+    margin: 0 20px;
+    line-height: 50rem
+}
