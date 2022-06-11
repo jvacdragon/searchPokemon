@@ -2,7 +2,7 @@ import { allData, getSearchResults, lowerName} from "./helpers.js"
 import viewPokemon from "./viewPokemon.js"
 
 const cardBlock = document.querySelector('.card-block')
-const btnNext = document.querySelector('.next')
+const nextBack = document.querySelectorAll('.change')
 
 
 //GET THE DATA OF THE POKEMON
@@ -27,6 +27,9 @@ btnSearch.addEventListener('click', function(e){
     e.preventDefault();
 
     cardBlock.innerHTML = ''
+
+    nextBack.forEach(btn => btn.style.display = 'block')
+    
 
     searchPoke()
 })

@@ -69,8 +69,16 @@ main{
     margin: auto;
 }
 
+
+
 .change{
     background-color: aqua;
     margin: 0 20px;
-    line-height: 50rem
+    line-height: 50rem;
+    display: none;
+}
+
+svg{
+    max-width: 20px;
+    max-height: 20px;
 }
