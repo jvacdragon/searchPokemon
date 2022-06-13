@@ -3,7 +3,8 @@ import pokeCard from "./viewPokemon.js"
 const searchBar = document.querySelector('.searchBar')
 
 
-const pagination = {
+export const pagination = {
+    results: [],
     resultsPerPage: 8,
     page: 1,
 }
@@ -32,7 +33,7 @@ export const lowerName = () => {
 }
 
 ////PAGE PAGINATION
-export const getSearchResults = async function (results, page = pagination.page) {
+export const getSearchResults = async function (page = pagination.page, results = pagination.results) {
 
     const start = (page - 1) * pagination.resultsPerPage;
     const end = page * pagination.resultsPerPage;
@@ -57,5 +58,7 @@ export const allData = async (name) => {
         };
     });
 
-    getSearchResults(results)
+    pagination.results = results
+
+    getSearchResults()
 }

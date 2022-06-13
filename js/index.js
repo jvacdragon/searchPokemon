@@ -1,4 +1,9 @@
-import { allData, getSearchResults, lowerName} from "./helpers.js"
+import {
+    allData,
+    getSearchResults,
+    lowerName,
+    pagination
+} from "./helpers.js"
 import viewPokemon from "./viewPokemon.js"
 
 const cardBlock = document.querySelector('.card-block')
@@ -23,13 +28,28 @@ const searchPoke = async function searchPoke() {
     }
 }
 
-btnSearch.addEventListener('click', function(e){
+btnSearch.addEventListener('click', function (e) {
     e.preventDefault();
 
     cardBlock.innerHTML = ''
 
     nextBack.forEach(btn => btn.style.display = 'block')
-    
+
 
     searchPoke()
+})
+
+document.querySelector('.next').addEventListener('click', function () {
+
+    cardBlock.innerHTML = ''
+    pagination.page++
+    getSearchResults()
+})
+
+document.querySelector('.back').addEventListener('click', function(e){
+    if(pagination.page === 1) return;
+
+    cardBlock.innerHTML = ''
+    pagination.page--
+    getSearchResults()
 })
