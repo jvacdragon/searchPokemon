@@ -61,4 +61,13 @@ export const allData = async (name) => {
     pagination.results = results
 
     getSearchResults()
+
+    //GETTING THE TOTAL OF PAGES
+    maxPages()
+}
+
+export const maxPages = () => {
+    const totalPage = pagination.results.length / pagination.resultsPerPage
+
+    pagination.totalPages = Math.ceil(totalPage)
 }

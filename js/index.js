@@ -4,7 +4,6 @@ import {
     lowerName,
     pagination
 } from "./helpers.js"
-import viewPokemon from "./viewPokemon.js"
 
 const cardBlock = document.querySelector('.card-block')
 const nextBack = document.querySelectorAll('.change')
@@ -40,6 +39,8 @@ btnSearch.addEventListener('click', function (e) {
 })
 
 document.querySelector('.next').addEventListener('click', function () {
+
+    if(pagination.page === pagination.totalPages) return;
 
     cardBlock.innerHTML = ''
     pagination.page++
