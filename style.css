@@ -73,8 +73,3 @@ main{
     line-height: 50rem;
     display: none;
 }
-
-svg{
-    max-width: 20px;
-    max-height: 20px;
-}
