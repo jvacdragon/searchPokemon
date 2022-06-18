@@ -37,7 +37,7 @@ li {
     display: none;
     border: 3px solid black;
     border-radius: 5px;
-    max-width: 700px;
+    width: 40rem;
     flex-wrap: wrap;
     margin: auto;
     justify-content:center
@@ -49,7 +49,7 @@ li {
     padding: 0;
     font-family: 'Josefin Sans', sans-serif;
     border-radius: 5px;
-    max-width: 140px;
+    max-width: 9rem;
     margin: 5% auto;
 }
 
@@ -71,5 +71,10 @@ main{
 .change{
     margin: 0 20px;
     line-height: 50rem;
+    width: fit-content;
     display: none;
+}
+
+.btn{
+    border-radius: 50%;
 }

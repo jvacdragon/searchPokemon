@@ -42,7 +42,11 @@ export const getSearchResults = async function (page = pagination.page, results 
     const cards = await Promise.all(results.slice(start,end))
 
     //DISPLAY THEN CARDS
-    cards.map(cards => pokeCard.renderCard(cards))
+    cards.map(cards => {
+        if(!cards.id) return 'dfg';
+        
+        return pokeCard.renderCard(cards)
+    })
 };
 
 
@@ -50,6 +54,7 @@ export const allData = async (name) => {
     const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0')
     const data = await res.json()
     const results = []
+    pagination.page = 1
 
     await data.results.map(async (poke) =>{
 
