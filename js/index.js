@@ -38,7 +38,7 @@ btnSearch.addEventListener('click', function (e) {
     searchPoke()
 })
 
-document.querySelector('.next').addEventListener('click', function () {
+document.querySelector('.btn-next').addEventListener('click', function () {
 
     if(pagination.page === pagination.totalPages) return;
 
@@ -47,7 +47,7 @@ document.querySelector('.next').addEventListener('click', function () {
     getSearchResults()
 })
 
-document.querySelector('.back').addEventListener('click', function(e){
+document.querySelector('.btn-back').addEventListener('click', function(e){
     if(pagination.page === 1) return;
 
     cardBlock.innerHTML = ''
