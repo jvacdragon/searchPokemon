@@ -6,7 +6,7 @@ import {
 } from "./helpers.js"
 
 const cardBlock = document.querySelector('.card-block')
-const nextBack = document.querySelectorAll('.change')
+
 
 
 //GET THE DATA OF THE POKEMON
@@ -32,9 +32,7 @@ btnSearch.addEventListener('click', function (e) {
 
     cardBlock.innerHTML = ''
 
-    nextBack.forEach(btn => btn.style.display = 'block')
 
-    document.querySelector('footer').classList.remove('separete')
 
 
     searchPoke()

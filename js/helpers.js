@@ -2,6 +2,8 @@ import pokeCard from "./viewPokemon.js"
 
 const searchBar = document.querySelector('.searchBar')
 
+const nextBack = document.querySelectorAll('.change')
+
 
 export const pagination = {
     results: [],
@@ -44,6 +46,10 @@ export const getSearchResults = async function (page = pagination.page, results 
     //DISPLAY THEN CARDS
     cards.map(cards => {
         if(cards === undefined) return;
+
+        nextBack.forEach(btn => btn.style.display = 'block')
+
+        document.querySelector('footer').classList.remove('separete')
         
         return pokeCard.renderCard(cards)
     })
