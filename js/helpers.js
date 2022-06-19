@@ -43,7 +43,7 @@ export const getSearchResults = async function (page = pagination.page, results 
 
     //DISPLAY THEN CARDS
     cards.map(cards => {
-        if(!cards.id) return 'dfg';
+        if(cards === undefined) return;
         
         return pokeCard.renderCard(cards)
     })
