@@ -34,6 +34,8 @@ btnSearch.addEventListener('click', function (e) {
 
     nextBack.forEach(btn => btn.style.display = 'block')
 
+    document.querySelector('footer').classList.remove('separete')
+
 
     searchPoke()
 })
