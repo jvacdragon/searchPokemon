@@ -40,7 +40,7 @@ li {
   border-radius: 5px;
   width: 40rem;
   flex-wrap: wrap;
-  margin: auto;
+  margin: auto 2rem;
   justify-content: center;
 }
 
@@ -66,27 +66,34 @@ img {
 main {
   display: flex;
   width: fit-content;
-  margin: auto;
+  margin: 5rem auto;
 }
 
 .change {
-  margin: 0 20px;
-  line-height: 50rem;
-  width: fit-content;
+  margin: auto;
   display: none;
 }
 
- .btn {
+.btn {
   border-radius: 100%;
   width: fit-content;
   border: none;
   background-color: white;
   padding: 0;
+  cursor: pointer;
 }
 
-/* .hidden {
+svg.arrow {
+  transition: width 0.5s;
+}
+
+svg.arrow:hover {
+  width: 130%;
+}
+
+.hidden {
   display: none;
-} */
+}
 
 .separete {
   margin-top: 10rem;

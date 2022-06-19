@@ -1,56 +1,45 @@
-import {
-    allData,
-    getSearchResults,
-    lowerName,
-    pagination
-} from "./helpers.js"
+import { allData, lowerName, pagination } from "./helpers.js";
+import { getSearchResults, hiddenButtons } from "./Pagination/pagination.js";
 
-const cardBlock = document.querySelector('.card-block')
-
-
+const cardBlock = document.querySelector(".card-block");
 
 //GET THE DATA OF THE POKEMON
 //`https://pokeapi.co/api/v2/pokemon/${namePokemon}`
 
-
-const btnSearch = document.querySelector('.env')
-
+const btnSearch = document.querySelector(".env");
 
 ////SEARCHING FOR THE POKEMON
 const searchPoke = async function searchPoke() {
-    try {
-        const name = lowerName()
-        allData(name)
+  try {
+    const name = lowerName();
+    allData(name);
+  } catch (err) {
+    console.error(err);
+  }
+};
 
-    } catch (err) {
-        console.error(err);
-    }
-}
+btnSearch.addEventListener("click", function (e) {
+  e.preventDefault();
 
-btnSearch.addEventListener('click', function (e) {
-    e.preventDefault();
+  cardBlock.innerHTML = "";
 
-    cardBlock.innerHTML = ''
+  searchPoke();
 
+  hiddenButtons();
+});
 
+document.querySelector(".btn-next").addEventListener("click", function () {
+  if (pagination.page === pagination.totalPages) return;
 
+  cardBlock.innerHTML = "";
+  pagination.page++;
+  getSearchResults();
+});
 
-    searchPoke()
-})
+document.querySelector(".btn-back").addEventListener("click", function (e) {
+  if (pagination.page === 1) return;
 
-document.querySelector('.btn-next').addEventListener('click', function () {
-
-    if(pagination.page === pagination.totalPages) return;
-
-    cardBlock.innerHTML = ''
-    pagination.page++
-    getSearchResults()
-})
-
-document.querySelector('.btn-back').addEventListener('click', function(e){
-    if(pagination.page === 1) return;
-
-    cardBlock.innerHTML = ''
-    pagination.page--
-    getSearchResults()
-})
+  cardBlock.innerHTML = "";
+  pagination.page--;
+  getSearchResults();
+});
