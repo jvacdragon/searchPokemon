@@ -1,4 +1,4 @@
-import { getSearchResults } from "./Pagination/pagination.js";
+import { getSearchResults, hiddenButtons } from "./Pagination/pagination.js";
 
 const searchBar = document.querySelector(".searchBar");
 
@@ -44,10 +44,12 @@ export const allData = async (name) => {
 
   pagination.results = results;
 
-  getSearchResults();
+  await getSearchResults();
 
   //GETTING THE TOTAL OF PAGES
   maxPages();
+
+  hiddenButtons()
 };
 
 export const maxPages = () => {

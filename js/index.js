@@ -1,5 +1,5 @@
 import { allData, lowerName, pagination } from "./helpers.js";
-import { getSearchResults, hiddenButtons } from "./Pagination/pagination.js";
+import { getSearchResults, hiddenButtons} from "./Pagination/pagination.js";
 
 const cardBlock = document.querySelector(".card-block");
 
@@ -24,22 +24,24 @@ btnSearch.addEventListener("click", function (e) {
   cardBlock.innerHTML = "";
 
   searchPoke();
-
-  hiddenButtons();
 });
 
-document.querySelector(".btn-next").addEventListener("click", function () {
+document.querySelector(".btn-next").addEventListener("click", async function () {
   if (pagination.page === pagination.totalPages) return;
 
   cardBlock.innerHTML = "";
   pagination.page++;
-  getSearchResults();
+  await getSearchResults();
+
+  hiddenButtons()
 });
 
-document.querySelector(".btn-back").addEventListener("click", function (e) {
+document.querySelector(".btn-back").addEventListener("click", async function (e) {
   if (pagination.page === 1) return;
 
   cardBlock.innerHTML = "";
   pagination.page--;
-  getSearchResults();
+  await getSearchResults();
+
+  hiddenButtons()
 });
