@@ -13,13 +13,25 @@ input[type="search"]::-webkit-search-results-decoration {
 .head {
   border: 2px solid black;
   display: flex;
-  min-height: 300px;
-  line-height: 400px;
+  align-items: center;
+  height: 40vh;
+  width: 100vw;
   justify-content: center;
   background-image: url(https://images.unsplash.com/photo-1638613067237-b1127ef06c00?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80);
-  background-size: cover;
+  background-size: 100%;
   background-repeat: no-repeat;
-  background-position-y: 50%;
+  background-position-y: 65%;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50vw;
+}
+
+input {
+  width: 60%;
 }
 
 ul {
@@ -31,14 +43,14 @@ li {
 }
 
 .env {
-  min-height: 30px;
+  height: auto;
 }
 
 .card-block {
   display: none;
   border: 3px solid black;
   border-radius: 5px;
-  width: 40rem;
+  width: 70vw;
   flex-wrap: wrap;
   margin: auto 2rem;
   justify-content: center;
@@ -50,7 +62,7 @@ li {
   padding: 0;
   font-family: "Josefin Sans", sans-serif;
   border-radius: 5px;
-  max-width: 9rem;
+  max-width: 9;
   margin: 5% auto;
 }
 
@@ -83,6 +95,7 @@ main {
 }
 
 svg.arrow {
+  width: 100%;
   transition: width 0.5s;
 }
 
@@ -99,7 +112,7 @@ svg.arrow:hover {
 }
 
 footer {
-  width: 100%;
+  width: 100vw;
   background-color: gray;
   height: 10rem;
   display: flex;
@@ -117,9 +130,47 @@ footer {
 
 .icon {
   margin: auto;
-  width: 8%;
+  width: 2rem;
 }
 
 h2 {
   margin: auto;
+}
+
+@media (max-width: 700px) {
+  html {
+    font-size: 0.7em;
+  }
+
+  .arrow {
+    width: 40%;
+  }
+
+  .cards {
+    width: 10em;
+  }
+}
+
+@media (max-width: 500px) {
+  html {
+    font-size: 0.4em;
+  }
+
+  .card-block {
+    width: 70vw;
+  }
+
+  .cards {
+    font-size: 140%;
+  }
+
+  footer {
+    font-size: 2.5em;
+  }
+}
+
+@media (max-width: 400px) {
+  .cards {
+    width: 10em;
+  }
 }

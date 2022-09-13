@@ -49,7 +49,7 @@ export const allData = async (name) => {
   //GETTING THE TOTAL OF PAGES
   maxPages();
 
-  hiddenButtons()
+  hiddenButtons();
 };
 
 export const maxPages = () => {
